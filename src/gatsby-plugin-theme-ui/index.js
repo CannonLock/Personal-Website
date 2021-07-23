@@ -3,7 +3,9 @@ import { polaris as light, deep as dark } from '@theme-ui/presets'
 
 // Okay
 const theme = {
-  breakpoints: ['40em', '52em', '64em'],
+  breakpoints: ['576px', '768px', '992px', '1200px', '1400px'],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   useColorSchemeMediaQuery : true,
   colors : {
     ...light.colors,
@@ -23,10 +25,9 @@ const theme = {
   prism : dark.prism,
   styles : dark.styles,
   textStyles : dark.textStyles,
-  flexs : {
-    container : {
-      width : ["960px",	"1140px",	"1320px"]
-    }
+  container: {
+    pl: 2,
+    pr: 2,
   },
   links: {
     sub_nav: {

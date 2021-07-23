@@ -1,33 +1,31 @@
 import React from "react"
 import { Link } from "@theme-ui/components"
 import { Heading } from 'theme-ui'
-import { Box, Text } from "theme-ui"
+import { Box, Flex, Text } from "theme-ui"
 
 const ContactLink = ( props ) => {
   return (
-    <Box>
-      <Text
-        sx={{
-          textAlign:"center",
-          fontSize:[1, 2]
-        }}
+    <Text
+      sx={{
+        textAlign:"center",
+        fontSize: [1, 2]
+      }}
+    >
+      {props.contact + ": "}
+      <Link
+        sx={{color: 'text', textDecoration: 'underline'}}
+        href={props.contactLink}
       >
-        {props.contact + ": "}
-        <Link
-          sx={{color: 'text', textDecoration: 'underline'}}
-          href={props.contactLink}
-        >
-          {props.contactText}
-        </Link>
-      </Text>
-    </Box>
+        {props.contactText}
+      </Link>
+    </Text>
   )
 }
 
 const Footer = ( props ) => {
 
   return (
-    <Box
+    <Flex
       sx = {{
         borderTopWidth: "2px",
         borderRightWidth: 0,
@@ -39,6 +37,8 @@ const Footer = ( props ) => {
         mt: "auto",
         mr: 2,
         ml: 2,
+        justifyContent: 'center',
+        flexDirection: 'column'
       }}
     >
       <Heading
@@ -47,7 +47,6 @@ const Footer = ( props ) => {
           color:'primary',
           textAlign:"center"
         }}
-        
       >
         Contact Information
       </Heading>
@@ -66,7 +65,7 @@ const Footer = ( props ) => {
         contactText="cannonlock" 
         contactLink="linkedin.com/in/cannonlock"
       />
-    </Box>
+    </Flex>
   )
   
 }

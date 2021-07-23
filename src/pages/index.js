@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Box, Flex, Heading, Text } from "theme-ui"
+import { Grid, Box, Heading, Text } from "theme-ui"
+import GIF from "../static/gifs/Breast-Stroke.gif"
 import jsx from "theme-ui"
 
 import SEO from "../components/seo"
@@ -10,11 +11,18 @@ const IndexPage = ( props ) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Flex>
-        <p>
-          This is a pretty lame page without content, so this site is going to chill while I get some ready.
-        </p>
-      </Flex>
+      <Grid columns={[2, '1fr auto']}>
+        <Box>
+          <p>
+            Welcome, this website is solely to put a face on some projects that
+            I have been working on. If you are interested in me the links below
+            should give you a good idea of the various facets of my life.
+          </p>
+        </Box>
+        <Box>
+          <img src={GIF} alt="Swimming Gif" />
+        </Box>
+      </Grid>
     </Layout>
   )
 }
