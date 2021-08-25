@@ -24,7 +24,7 @@ module.exports = {
         short_name: `Lock Dot Com`,
         start_url: `/index.js`,
         display: `minimal-ui`,
-        icon: `src/static/images/WebsiteFavicon32x32.png`, // This path is relative to the root of the site.
+        icon: `src/static/images/WebsiteFavicon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -35,12 +35,6 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "/static/images/WebsiteFavicon32x32.png",
-      },
-    },
     {
       resolve: "gatsby-plugin-mdx",
     },

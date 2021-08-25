@@ -13,7 +13,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-manifest',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"Cannon Lock's Personal Website","short_name":"Lock Dot Com","start_url":"/index.js","display":"minimal-ui","icon":"src/static/images/WebsiteFavicon32x32.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":null},
+      options: {"plugins":[],"name":"Cannon Lock's Personal Website","short_name":"Lock Dot Com","start_url":"/index.js","display":"minimal-ui","icon":"src/static/images/WebsiteFavicon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"0aff92e58142e290bc30a4efc68fbef2"},
     },{
       name: 'gatsby-plugin-google-analytics',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
@@ -26,10 +26,6 @@ var plugins = [{
       name: 'gatsby-plugin-sitemap',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
       options: {"plugins":[],"output":"/sitemap","createLinkInHead":true,"entryLimit":45000,"query":"{ site { siteMetadata { siteUrl } } allSitePage { nodes { path } } }","excludes":[]},
-    },{
-      name: 'gatsby-plugin-manifest',
-      plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"icon":"/static/images/WebsiteFavicon32x32.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":null},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
