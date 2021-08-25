@@ -71,13 +71,7 @@ const AboutPage = ( props ) => {
   return (
     <Layout>
       <SEO title="About" />
-      <Heading
-          sx = {{
-            fontSize : 5
-          }}
-        >
-        About Me
-      </Heading>
+      <Heading as={"h1"}>About Me</Heading>
       <Flex
         sx = {{
           display: 'flex',

@@ -11708,6 +11708,20 @@ function useScrollRestoration(identifier) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var plugins = [{
+  name: 'gatsby-plugin-mdx',
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-mdx/gatsby-ssr */ "./node_modules/gatsby-plugin-mdx/gatsby-ssr.js"),
+  options: {
+    "plugins": [],
+    "extensions": [".mdx"],
+    "defaultLayouts": {},
+    "gatsbyRemarkPlugins": [],
+    "lessBabel": false,
+    "remarkPlugins": [],
+    "rehypePlugins": [],
+    "mediaTypes": ["text/markdown", "text/x-markdown"],
+    "root": "/Users/cannonlock/WebstormProjects/Personal-Website"
+  }
+}, {
   name: 'gatsby-plugin-theme-ui',
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-theme-ui/gatsby-ssr */ "./node_modules/gatsby-plugin-theme-ui/gatsby-ssr.js"),
   options: {
@@ -11728,13 +11742,13 @@ var plugins = [{
     "short_name": "Lock Dot Com",
     "start_url": "/index.js",
     "display": "minimal-ui",
-    "icon": "src/static/images/WebsiteFavicon.png",
+    "icon": "src/static/images/WebsiteFavicon32x32.png",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": "0aff92e58142e290bc30a4efc68fbef2"
+    "cacheDigest": null
   }
 }, {
   name: 'gatsby-plugin-google-analytics',
@@ -11771,27 +11785,13 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "icon": "src/static/images/WebsiteFavicon.png",
+    "icon": "/static/images/WebsiteFavicon32x32.png",
     "legacy": true,
     "theme_color_in_head": true,
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": "0aff92e58142e290bc30a4efc68fbef2"
-  }
-}, {
-  name: 'gatsby-plugin-mdx',
-  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-mdx/gatsby-ssr */ "./node_modules/gatsby-plugin-mdx/gatsby-ssr.js"),
-  options: {
-    "plugins": [],
-    "extensions": [".mdx"],
-    "defaultLayouts": {},
-    "gatsbyRemarkPlugins": [],
-    "lessBabel": false,
-    "remarkPlugins": [],
-    "rehypePlugins": [],
-    "mediaTypes": ["text/markdown", "text/x-markdown"],
-    "root": "/Users/cannonlock/WebstormProjects/Personal-Website"
+    "cacheDigest": null
   }
 }]; // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
@@ -14125,6 +14125,10 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 const theme = {
   breakpoints: ['576px', '768px', '992px', '1200px', '1400px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  fonts: {
+    body: "'Montserrat', sans-serif;",
+    heading: "'Titillium Web', sans-serif;"
+  },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   useColorSchemeMediaQuery: true,
   colors: _objectSpread(_objectSpread({}, _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.polaris.colors), {}, {
@@ -14135,7 +14139,6 @@ const theme = {
   }),
   fontSize: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.fontSizes,
   fontWeights: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.fontWeights,
-  fonts: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.fonts,
   lineHeights: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.lineHeights,
   prism: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.prism,
   styles: _theme_ui_presets__WEBPACK_IMPORTED_MODULE_1__.deep.styles,
@@ -14143,6 +14146,15 @@ const theme = {
   container: {
     pl: 2,
     pr: 2
+  },
+  text: {
+    block: {
+      variant: 'paragraph',
+      my: 3,
+      textAlign: 'justify',
+      textAlignLast: 'start',
+      textJustify: 'auto'
+    }
   },
   links: {
     sub_nav: {

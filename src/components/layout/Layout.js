@@ -2,7 +2,6 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Flex } from 'theme-ui'
-import Container from './Container'
 import { jsx } from "theme-ui"
 
 import Header from "./Header"
@@ -19,9 +18,7 @@ const Layout = ( props ) => {
       }}
     >
       <Header/>
-      <Container>
         <main>{props.children}</main>
-      </Container>
       <Footer/>
     </Flex>
   )

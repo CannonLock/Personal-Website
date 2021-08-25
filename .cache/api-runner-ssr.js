@@ -1,4 +1,8 @@
 var plugins = [{
+      name: 'gatsby-plugin-mdx',
+      plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
+      options: {"plugins":[],"extensions":[".mdx"],"defaultLayouts":{},"gatsbyRemarkPlugins":[],"lessBabel":false,"remarkPlugins":[],"rehypePlugins":[],"mediaTypes":["text/markdown","text/x-markdown"],"root":"/Users/cannonlock/WebstormProjects/Personal-Website"},
+    },{
       name: 'gatsby-plugin-theme-ui',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-theme-ui/gatsby-ssr'),
       options: {"plugins":[]},
@@ -9,7 +13,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-manifest',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"Cannon Lock's Personal Website","short_name":"Lock Dot Com","start_url":"/index.js","display":"minimal-ui","icon":"src/static/images/WebsiteFavicon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"0aff92e58142e290bc30a4efc68fbef2"},
+      options: {"plugins":[],"name":"Cannon Lock's Personal Website","short_name":"Lock Dot Com","start_url":"/index.js","display":"minimal-ui","icon":"src/static/images/WebsiteFavicon32x32.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":null},
     },{
       name: 'gatsby-plugin-google-analytics',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
@@ -25,11 +29,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-manifest',
       plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"icon":"src/static/images/WebsiteFavicon.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"0aff92e58142e290bc30a4efc68fbef2"},
-    },{
-      name: 'gatsby-plugin-mdx',
-      plugin: require('/Users/cannonlock/WebstormProjects/Personal-Website/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
-      options: {"plugins":[],"extensions":[".mdx"],"defaultLayouts":{},"gatsbyRemarkPlugins":[],"lessBabel":false,"remarkPlugins":[],"rehypePlugins":[],"mediaTypes":["text/markdown","text/x-markdown"],"root":"/Users/cannonlock/WebstormProjects/Personal-Website"},
+      options: {"plugins":[],"icon":"/static/images/WebsiteFavicon32x32.png","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":null},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
