@@ -30,7 +30,7 @@ jobs:
             -   name: Deploy
                 run: |
                     # Add in the correct CNAME
-                    echo "cannonlock.com" > CNAME
+                    echo "cannonlock.com" > public/CNAME
 
                     # Commit the build then use 'git subtree' to create a branch with just the public contents
                     git add public -f
