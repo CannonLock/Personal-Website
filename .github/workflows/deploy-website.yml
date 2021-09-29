@@ -11,6 +11,11 @@ jobs:
         steps:
             -   uses: actions/checkout@v2
 
+            -   name: Initialize GH User
+                run: |
+                    git config user.name "GitHub Actions"
+                    git config user.email "actions@github.com"
+
             -   name: Set Node.js
                 uses: actions/setup-node@master
                 with:
