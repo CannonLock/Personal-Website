@@ -3,11 +3,87 @@ title: Deploying Gatsby with Github Actions
 date: 2021-09-28
 ---
 
-import MD_Layout from "../../components/layout/MD_Layout"
+import MD_Layout from "../../components/layout/MD_Layout";
+export default MD_Layout;
 
-<p>This is a test!</p>
 
-export default MD_Layout
+### Deploying a Gatsby Website with Github Actions
+
+When I first began deploying my Gatsby Website I started the hard way.
+
+1. Creating an empty branch
+1. Running 'gatsby build' to create the static html
+1. Moving this static html to my empty branch
+1. Force pushing this to the branch that hosts my Github Pages
+
+**After doing this once I was already exhausted by the process.**
+
+Now I let Github Actions do this all for me To set up your
+own automatic website deployment action using Github Actions follow the steps
+below.
+
+#### 1. Create a New Github Action
+
+To do this you will want to navigate to the root of your github repository
+and create a file with path '.github/workflows/deploy-website.yml'.
+
+#### 2. Populate the workflow file
+
+Next you will fill in the workflow yaml file with the following code.
+
+```
+name: Gatsby Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Initialize GH User
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Set Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: |
+          # Add in the correct CNAME
+          echo "cannonlock.com" > public/CNAME
+
+          # Commit the build then use 'git subtree' to create a branch with just the public contents
+          git add public -f
+          git commit -m "Build Production Website"
+          git checkout -b gh-pages `git subtree split --prefix public master`
+
+          # Push to Production
+          git push --set-upstream origin gh-pages --force
+```
+
+#### 3. Push to master branch
+
+From this point on you can check that the website deployed as you expected
+in the Actions tab on your Github Repo. From this point on every push to
+your master branch will result in an updated production instance of your
+website!
+
+
+
 
 
 
