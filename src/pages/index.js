@@ -16,9 +16,8 @@ const IndexPage = ( props ) => {
         <Grid columns={[2, '1fr auto']}>
           <Box>
             <Paragraph variant={"block"} sx={{fontsize:4}}>
-              Welcome, this website is solely to put a face on some projects that
-              I have been working on. If you are interested in me the links below
-              should give you a good idea of the various facets of my life.
+              Welcome, thanks for visiting my page! It is currently a work in progress
+              so if you are curious to learn more the best bet is the links on the bottom.
             </Paragraph>
           </Box>
           <Box>
