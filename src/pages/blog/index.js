@@ -1,32 +1,14 @@
-import React, { useState } from "react"
-import { Box, Flex, Heading, Text, Button } from "theme-ui"
-import { useStaticQuery, graphql, Link } from "gatsby"
-import Img from "gatsby-plugin-image"
+import React from "react"
+import { Link, graphql } from "gatsby"
 import Container from '../../components/layout/Container'
-import {
-  Label,
-  Input,
-} from 'theme-ui'
-
-import SEO from "../../components/seo"
 import Layout from "../../components/layout/Layout"
+import SEO from "../../components/seo"
 
-const ProjectPage = ({ data }) => {
-
+const BlogPage = ({ data }) => {
   return (
     <Layout>
+      <SEO title={"Blog"} />
       <Container>
-        <SEO title="Projects" />
-        <Heading
-          sx = {{
-            fontSize : 5
-          }}
-        >
-          Project Page
-        </Heading>
-        <p>
-          A collection of all the projects that are atleast somewhat tangential to my studies.
-        </p>
         {
           data.allMdx.nodes.map(node => (
             <article key={node.id}>
@@ -48,7 +30,7 @@ export const query = graphql`
   query {
     allMdx(
       sort: {fields: frontmatter___date, order: ASC}
-      filter: {fileAbsolutePath: {glob: "**/projects/**"}}
+      filter: {fileAbsolutePath: {glob: "**/blog/**"}}
     ) {
       nodes {
         frontmatter {
@@ -59,7 +41,7 @@ export const query = graphql`
         slug
       }
     }
-  } 
+  }
 `
 
-export default ProjectPage;
+export default BlogPage;

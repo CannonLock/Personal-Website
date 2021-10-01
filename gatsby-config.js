@@ -56,7 +56,6 @@ module.exports = {
       },
       __key: "icons",
     },
-
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -64,6 +63,20 @@ module.exports = {
         path: `${__dirname}/src/static/data/`,
       },
       __key: "data",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `blog`,
+        path: `${__dirname}/src/pages/blog`,
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `projects`,
+        path: `${__dirname}/src/pages/projects`,
+      }
     },
   ],
 };

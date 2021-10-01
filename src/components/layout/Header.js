@@ -13,6 +13,7 @@ const Header = () => {
     <Flex
       as="nav"
       sx={{
+        mb:4,
         px:3,
         py:2,
         boxShadow: "0px 0px 5px #8080803d"
@@ -45,6 +46,9 @@ const Header = () => {
       </NavLink>
       <NavLink to={"/about"} p={2} as={GatsbyLink} variant="sub_nav">
         <Heading as={"h3"}>About</Heading>
+      </NavLink>
+      <NavLink to={"/blog"} p={2} as={GatsbyLink} variant="sub_nav">
+        <Heading as={"h3"}>Blog</Heading>
       </NavLink>
       <NavLink to={"/projects"} p={2} as={GatsbyLink} variant="sub_nav">
         <Heading as={"h3"}>Projects</Heading>

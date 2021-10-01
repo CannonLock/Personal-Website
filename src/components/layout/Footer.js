@@ -43,6 +43,7 @@ const Footer = ( props ) => {
     <Flex
       sx = {{
         mt: "auto",
+
         px: 3,
         py: 3,
         boxShadow: "0px 0px 5px #8080803d",
