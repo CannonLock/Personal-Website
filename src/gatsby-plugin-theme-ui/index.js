@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { polaris as light, deep as dark } from '@theme-ui/presets'
+import { swiss as light, deep as dark } from '@theme-ui/presets'
 
 // Okay
 const theme = {
