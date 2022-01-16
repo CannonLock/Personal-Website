@@ -14,7 +14,6 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-mdx`,
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-image",
     {
@@ -36,7 +35,12 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-mdx",
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout/MD_Layout.js")
+        }
+      }
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -55,14 +59,6 @@ module.exports = {
         path: `${__dirname}/src/static/icons/`,
       },
       __key: "icons",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "data",
-        path: `${__dirname}/src/static/data/`,
-      },
-      __key: "data",
     },
     {
       resolve: "gatsby-source-filesystem",

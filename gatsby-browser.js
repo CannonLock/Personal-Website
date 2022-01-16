@@ -1,1 +1,1 @@
-import "./src/static/style.css"
+require("./src/static/style.css")

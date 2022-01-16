@@ -31,7 +31,7 @@ const ProjectPage = ({ data }) => {
           data.allMdx.nodes.map(node => (
             <article key={node.id}>
               <h2>
-                <Link to={`/blog/${node.slug}`}>
+                <Link to={`/projects/${node.slug}`}>
                   {node.frontmatter.title}
                 </Link>
               </h2>

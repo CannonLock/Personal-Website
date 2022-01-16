@@ -1,0 +1,66 @@
+---
+title: Benchmarking Your Network With Python
+date: 2022-01-02
+github: https://github.com/CannonLock/network_benchmark
+---
+
+
+
+# Network Benchmarking With Python
+
+If you are looking to set up a quick and easy way to benchmark your network
+connection using Python look no further. Using the [speedtest-cli](https://pypi.org/project/speedtest-cli/)
+package you can monitor your network usage around the clock.
+
+To start we will by installing the speedtest package.
+
+```shell
+pip3 install speedtest
+```
+
+Then importing the packages we are using.
+
+```python
+import speedtest
+import time
+import datetime
+```
+
+Following the initializing of the Speedtest Object we will start an infinite
+loop to collect the network data. On lines 11 and 12 we access the test
+object and call the ```download()``` and ```upload()``` methods to get the
+network speeds. These values, which are returned in
+[bytes](http://www.wu.ece.ufl.edu/links/dataRate/DataMeasurementChart.html),
+are then appended to our CSV file with the timestamp of when it was taken.
+
+```python
+test = speedtest.Speedtest()  # Initialize the test object
+
+while True:
+
+  test.get_best_server()  # Make sure the best server is being used
+
+  for _ in range(12):  # Check for better server every two hours
+
+    # Generate the data
+    current_time = datetime.datetime.now()
+    download_speed = test.download()
+    upload_speed = test.upload()
+
+    csv_line = ",".join(map(str, [current_time, download_speed, upload_speed])) + "\n"
+
+    try:
+      with open(DATA_PATH, "a") as fp:
+        fp.write(csv_line)
+
+    except:
+      print("Oh No!")
+
+    time.sleep(600)  # Rest for 10 minutes before next execution
+```
+
+You can see an
+[example of this data](https://raw.githubusercontent.com/CannonLock/data/master/benchmark.csv)
+on my GitHub. If you are interested in the project that
+required this data you can refer to my project article ["Charter ISP - Slow
+Internet at 5pm or Delusion?"](/projects/Charter_Network_Benchmark)

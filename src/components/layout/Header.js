@@ -5,8 +5,6 @@ import React, { useState } from "react"
 import { Heading, jsx } from 'theme-ui'
 import { Box, Button, Flex, NavLink } from 'theme-ui'
 
-import links from "../../data/link"
-
 const Header = () => {
 
   return(
