@@ -13,7 +13,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
-   sodipodi:docname="fern.svg">
+   sodipodi:docname="fern.svg"
+   inkscape:export-filename="/Users/cannonlock/WebstormProjects/Personal-Website/src/static/images/fern.png"
+   inkscape:export-xdpi="162.36148"
+   inkscape:export-ydpi="162.36148">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -24,16 +27,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="135.93051"
+     inkscape:cx="-362.64092"
      inkscape:cy="487.21657"
      inkscape:document-units="mm"
      inkscape:current-layer="g24"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1252"
-     inkscape:window-height="943"
-     inkscape:window-x="2061"
-     inkscape:window-y="25"
+     inkscape:window-height="900"
+     inkscape:window-x="869"
+     inkscape:window-y="-1955"
      inkscape:window-maximized="0" />
   <metadata
      id="metadata5">
@@ -43,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>

@@ -20,65 +20,84 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Container>
-        <Grid columns={['1fr', '1fr 1fr', '1fr 1fr']}>
-          <Box
-            sx={{
-              pl: 4
-            }}
-          >
+        <Grid columns={['1fr', '2fr 1fr', '2fr 1fr', "1fr 1fr"]}>
+          <Box>
             <Paragraph variant={"block"} sx={{fontsize:4}}>
               Web Developer during the day... and also at night. I use this website
               as a place to look into questions that I have and practice disseminating
               information.
             </Paragraph>
           </Box>
-          <Box></Box>
-        </Grid>
-        <Grid columns={['1fr', '1fr 2fr', '1fr auto']}>
-          <Box></Box>
           <Box
             sx={{
-              position: "relative",
-              width: ["300px", "450px"],
-              height: ["300px", "450px"]
+              display: ['none', "none", "none", 'block']
             }}
-          >
-            <Box
+          ></Box>
+        </Grid>
+        <Grid columns={['1fr', '1fr', '1fr auto']}>
+          <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
+            <Rounded
               sx={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                zIndex: 99,
-                display: "flex",
+                my: 'auto',
+                backgroundColor: "highlight",
+                width: ["260px", "390px"],
+                height: ["260px", "390px"]
               }}
             >
-              <Rounded
+              <GatsbyImage
+                alt={recent_blog.frontmatter.image_alt}
+                image={getImage(recent_blog.frontmatter.image)}
+              />
+            </Rounded>
+          </Box>
+          <Box>
+            <Box sx={{ position: "relative", }} >
+              <Box
                 sx={{
-                  ml: -6,
-                  mr: 4,
-                  my: 'auto',
-                  p: 3
+                  position: "absolute",
+                  height: "100%",
+                  width: "100%",
+                  zIndex: 99,
+                  display: "flex",
                 }}
               >
-                <Heading sx={{display:'flex'}}>
-                  <Link
-                    href={"/blog/" + recent_blog.slug}
-                    to={"/blog/" + recent_blog.slug}
-                    sx={{color:"text", mx: 'auto'}}
-                  >
-                    {recent_blog.frontmatter.title}
-                  </Link>
-                </Heading>
-                <Paragraph sx={{pt:3}}>
-                  {recent_blog.frontmatter.excerpt}
-                </Paragraph>
-              </Rounded>
-            </Box>
-            <Box>
-              <GatsbyImage alt={"Monstera Leaf"} image={monstera} />
+                <Rounded
+                  sx={{
+                    ml: [0, 0, 0, -6],
+                    mr: [0, 0, 0, 4],
+                    width: ["100%", "100%", "70%", "auto"],
+                    my: 'auto',
+                    p: 3
+                  }}
+                >
+                  <Heading sx={{display:'flex'}}>
+                    <Link
+                      href={"/blog/" + recent_blog.slug}
+                      to={"/blog/" + recent_blog.slug}
+                      sx={{color:"text", mx: 'auto'}}
+                    >
+                      {recent_blog.frontmatter.title}
+                    </Link>
+                  </Heading>
+                  <Paragraph sx={{pt:3}}>
+                    {recent_blog.frontmatter.excerpt}
+                  </Paragraph>
+                </Rounded>
+              </Box>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: ["350px", "350px", "350px", "450px"],
+                  height: ["350px", "350px", "350px", "450px"],
+                  ml: 'auto'
+                }}
+              >
+                <GatsbyImage alt={"Monstera Leaf"} image={monstera} />
+              </Box>
             </Box>
           </Box>
         </Grid>
+
         <Grid columns={['1fr', '2fr 1fr', 'auto 1fr']}>
           <Box
             sx={{
@@ -155,6 +174,12 @@ export const pageQuery = graphql`
           github
           title
           excerpt
+          image_alt
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG)
+            }
+          }
         }
       }
     }
@@ -163,13 +188,20 @@ export const pageQuery = graphql`
       filter: {fileAbsolutePath: {glob: "**/projects/**"}}
     ) {
       nodes {
-        frontmatter {
-          title
-          date(formatString: "D-M-Y")
-          excerpt
-        }
         id
         slug
+        frontmatter {
+          date
+          github
+          title
+          excerpt
+          image_alt
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG)
+            }
+          }
+        }
       }
     }
   }

@@ -7,9 +7,9 @@ const Rounded = (props) => {
   return(
     <Box
       sx={{
-        ...props.sx,
         borderRadius: '20px',
-        backgroundColor: 'primary'
+        backgroundColor: 'primary',
+        ...props.sx,
       }}
     >
       {props.children}
