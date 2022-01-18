@@ -25,7 +25,9 @@ const IndexPage = ({ data }) => {
             <Paragraph variant={"block"} sx={{fontsize:4}}>
               Web Developer during the day... and also at night. I use this website
               as a place to look into questions that I have and practice disseminating
-              information.
+              information. Content is a work in progress currently, but I am currently
+              working on some long term projects and will update the blog with
+              general things that I find interesting and helpful.
             </Paragraph>
           </Box>
           <Box
