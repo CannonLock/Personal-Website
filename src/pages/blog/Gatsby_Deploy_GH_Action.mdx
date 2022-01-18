@@ -1,92 +1,183 @@
 ---
-title: Deploying Gatsby with Github Actions
+title: Deploying Your Gatsby Website with Github Actions
 date: 2021-09-28
 excerpt: |
   A guide into deploying your Gatsby Website automatically using Github actions.
 ---
 
-/** @jsx jsx */
-import React, { useState, useEffect } from "react"
-import MD_Layout from "../../components/layout/MD_Layout"
-export default MD_Layout
+# Deploying Your Gatsby Website with Github Actions
 
+[Github actions](https://docs.github.com/en/actions) are a great way to automate all of your code on Github.
+Anything that you plan on doing more than once can be automated and leaving
+more time for the fun things.
 
-### Deploying a Gatsby Website with Github Actions
+Using the code walked through below you can reliably deploy your [Gatsby
+Website](https://www.gatsbyjs.com/) on Github pages as easily as you push to
+a remote repository.
 
-When I first began deploying my Gatsby Website I started the hard way.
+## Create a New Github Action
 
-1. Creating an empty branch
-1. Running 'gatsby build' to create the static html
-1. Moving this static html to my empty branch
-1. Force pushing this to the branch that hosts my Github Pages
+Adding a workflow to your current repository can be done creating a new yaml
+file and adding it to `.github/workflows/<workflow-name\>.yml`. When
+this file is pushed to your remote Github Repo you will be able to find a
+new action on your repo action page.
 
-**After doing this once I was already exhausted by the process.**
+## Build the workflow file
 
-Now I let Github Actions do this all for me To set up your
-own automatic website deployment action using Github Actions follow the steps
-below.
+You can find details of the breakdown below, or you can bottom of the page
+to view the full action file.
 
-#### 1. Create a New Github Action
-
-To do this you will want to navigate to the root of your github repository
-and create a file with path '.github/workflows/deploy-website.yml'.
-
-#### 2. Populate the workflow file
-
-Next you will fill in the workflow yaml file with the following code.
-
+### Add a Workflow name
 ```
 name: Gatsby Publish
+```
 
+### Add the Workflow Trigger
+
+The trigger is the event that causes our Action to run. In this case I
+have set it so that a push to my master branch will result in a new
+website build. You can learn more about this in the [workflow syntax docs](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on).
+```
 on:
   push:
     branches:
       - master
+  ```
+### Create Job
+
+This is the where we define what we want to run to the GitHub runner.
+
+1. Set up job
+
+  The first task is to set up the machine for the GHA(GitHub Action) to run
+  on. You can view all machine options in the [documentation](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)
+
+  ```
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+  ```
+
+2. Checkout the Repository
+
+  This step checks out the repository the action is in so you can access
+  its code.
+
+  ```
+    - uses: actions/checkout@v2
+  ```
+
+3. Initialize Git User
+
+  This is necessary so that we can push to the deployment branch. The
+  checkout action handles branch permissions, so we don't have to worry about
+  authentication.
+  ```shell
+    - name: Initialize GH User
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+  ```
+
+4. Set Up and Install Node Modules
+
+  Using the package.json file in the websites root we will set up npm and
+  install the needed modules to build our website.
+
+  ```shell
+    - name: Set Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+  ```
+
+5. Build the Website
+
+  ```shell
+    - name: Build
+      run: npm run build
+  ```
+
+6. Deploy the Website
+
+  First I copy over my CNAME file so that the website is
+  served from my custom domain. Next, and this is where it gets especially
+  confusing, I create a branch with the built website. To do this I commit
+  the built website to the current branch and then use subtree to split the
+  'public' subdirectory into its own branch called 'gh-pages'. As gh-pages
+  is the branch I serve my website from I then push this branch to origin
+  where is published to the world
+
+  ```shell
+    - name: Deploy
+      run: |
+        # Add in the correct CNAME - Optional
+        echo "<your-domain>" > public/CNAME
+
+        # Commit the build then use 'git subtree' to create a branch with just the public contents
+        git add public -f
+        git commit -m "Build Production Website"
+        git checkout -b gh-pages `git subtree split --prefix public master`
+
+        # Push to Production
+        git push --set-upstream origin gh-pages --force
+  ```
+
+## Using the Action
+
+Using this action now can spend less time deploying and more time developing!
+You can find the past runs for this action for this website in my
+[repository](https://github.com/CannonLock/Personal-Website/actions), and
+you can find the actual file [there as well](https://github.com/CannonLock/Personal-Website/blob/master/.github/workflows/deploy-website.yml).
+
+## Gatsby Deployment with GitHub Actions Full Code
+
+```shell
+name: Gatsby Publish
+
+on:
+    push:
+        branches:
+            - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
 
-      - name: Initialize GH User
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+            -   name: Initialize GH User
+                run: |
+                    git config user.name "GitHub Actions"
+                    git config user.email "actions@github.com"
 
-      - name: Set Node.js
-        uses: actions/setup-node@master
-        with:
-          node-version: '16'
+            -   name: Set Node.js
+                uses: actions/setup-node@master
+                with:
+                    node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
+            -   name: Install dependencies
+                run: npm install
 
-      - name: Build
-        run: npm run build
+            -   name: Build
+                run: npm run build
 
-      - name: Deploy
-        run: |
-          # Add in the correct CNAME
-          echo "cannonlock.com" > public/CNAME
+            -   name: Deploy
+                run: |
+                    # Add in the correct CNAME - Optional
+                    echo <your-domain> > public/CNAME
 
-          # Commit the build then use 'git subtree' to create a branch with just the public contents
-          git add public -f
-          git commit -m "Build Production Website"
-          git checkout -b gh-pages `git subtree split --prefix public master`
+                    # Commit the build then use 'git subtree' to create a branch with just the public contents
+                    git add public -f
+                    git commit -m "Build Production Website"
+                    git checkout -b gh-pages `git subtree split --prefix public master`
 
-          # Push to Production
-          git push --set-upstream origin gh-pages --force
+                    # Push to Production
+                    git push --set-upstream origin gh-pages --force
 ```
-
-#### 3. Push to master branch
-
-From this point on you can check that the website deployed as you expected
-in the Actions tab on your Github Repo. From this point on every push to
-your master branch will result in an updated production instance of your
-website!
-
-
 
 
 

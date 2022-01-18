@@ -8,6 +8,7 @@ import Layout from "../components/layout/Layout"
 import { Rounded, Content } from "../components/Cards"
 import { Link } from "@theme-ui/components"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import SEO from '../components/seo'
 
 const IndexPage = ({ data }) => {
 
@@ -19,6 +20,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO title={"Home"} description={""} />
       <Container>
         <Grid columns={['1fr', '2fr 1fr', '2fr 1fr', "1fr 1fr"]}>
           <Box>

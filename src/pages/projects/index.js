@@ -78,7 +78,7 @@ const ProjectPage = ({ data }) => {
 export const query = graphql`
   query {
     allMdx(
-      sort: {fields: frontmatter___date, order: ASC}
+      sort: {fields: frontmatter___date, order: DESC}
       filter: {fileAbsolutePath: {glob: "**/projects/**"}}
     ) {
       nodes {
