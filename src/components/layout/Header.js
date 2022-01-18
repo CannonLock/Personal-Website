@@ -11,7 +11,6 @@ const Header = () => {
     <Flex
       as="nav"
       sx={{
-        mb:4,
         px:3,
         py:2,
         boxShadow: "0px 0px 5px #8080803d"

@@ -5,7 +5,7 @@ import Container from '../components/layout/Container'
 import jsx from "theme-ui"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout/Layout"
-import { Rounded } from "../components/Cards"
+import { Rounded, Content } from "../components/Cards"
 import { Link } from "@theme-ui/components"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
             }}
           ></Box>
         </Grid>
-        <Grid columns={['1fr', '1fr', '1fr auto']}>
+        <Grid sx={{ my: 4 }} columns={['1fr', '1fr', '1fr auto']}>
           <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
             <Rounded
               sx={{
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
                   display: "flex",
                 }}
               >
-                <Rounded
+                <Box
                   sx={{
                     ml: [0, 0, 0, -6],
                     mr: [0, 0, 0, 4],
@@ -70,19 +70,13 @@ const IndexPage = ({ data }) => {
                     p: 3
                   }}
                 >
-                  <Heading sx={{display:'flex'}}>
-                    <Link
-                      href={"/blog/" + recent_blog.slug}
-                      to={"/blog/" + recent_blog.slug}
-                      sx={{color:"text", mx: 'auto'}}
-                    >
-                      {recent_blog.frontmatter.title}
-                    </Link>
-                  </Heading>
-                  <Paragraph sx={{pt:3}}>
-                    {recent_blog.frontmatter.excerpt}
-                  </Paragraph>
-                </Rounded>
+                  <Content
+                    title={recent_blog.frontmatter.title}
+                    date={recent_blog.frontmatter.date}
+                    content={recent_blog.frontmatter.excerpt}
+                    href={"/blog/" + recent_blog.slug}
+                  />
+                </Box>
               </Box>
               <Box
                 sx={{
@@ -97,49 +91,61 @@ const IndexPage = ({ data }) => {
             </Box>
           </Box>
         </Grid>
-
-        <Grid columns={['1fr', '2fr 1fr', 'auto 1fr']}>
-          <Box
-            sx={{
-              position: "relative",
-              width: ["350px", "550px"],
-              height: ["350px", "550px"]
-            }}
-          >
-            <Box
-              sx={{
-                position: "absolute",
-                height: "100%",
-                width: "100%",
-                zIndex: 99,
-                display: "flex",
-              }}
-            >
-              <Rounded
+        <Grid sx={{ my: 4 }} columns={['1fr', '1fr', '1fr', 'auto 1fr']}>
+          <Box>
+            <Box sx={{ position: "relative", }} >
+              <Box
                 sx={{
-                  ml: 4,
-                  mr: -6,
-                  my: 'auto',
-                  p: 3
+                  position: "absolute",
+                  height: "100%",
+                  width: "100%",
+                  zIndex: 99,
+                  display: "flex",
                 }}
               >
-                <Heading sx={{display:'flex'}}>
-                  <Link
-                    href={"/blog/" + recent_project.slug}
-                    to={"/blog/" + recent_project.slug}
-                    sx={{color:"text", mx: 'auto'}}
-                  >
-                    {recent_project.frontmatter.title}
-                  </Link>
-                </Heading>
-                <Paragraph sx={{pt:3}}>
-                  {recent_project.frontmatter.excerpt}
-                </Paragraph>
-              </Rounded>
+                <Box
+                  sx={{
+                    mr: [0, 0, 0, -6],
+                    ml: ['auto', 'auto', 'auto', 4],
+                    width: ["100%", "100%", "70%", "auto"],
+                    my: 'auto',
+                    p: 3
+                  }}
+                >
+                  <Content
+                    title={recent_project.frontmatter.title}
+                    date={recent_project.frontmatter.date}
+                    content={recent_project.frontmatter.excerpt}
+                    href={"/projects/" + recent_project.slug}
+                  />
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: ["350px", "350px", "350px", "450px"],
+                  height: ["350px", "350px", "350px", "450px"],
+                }}
+              >
+                <GatsbyImage alt={"Fern Leaf"} image={fern} />
+              </Box>
             </Box>
-            <Box>
-              <GatsbyImage alt={"Fern Leaf"} image={fern} />
-            </Box>
+          </Box>
+          <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
+            <Rounded
+              sx={{
+                ml: 'auto',
+                my: 'auto',
+                backgroundColor: "highlight",
+                width: ["300px", "450px", "450px", "450px"],
+                height: ["300px", "450px", "450px", "450px"]
+              }}
+            >
+              <GatsbyImage
+                alt={recent_project.frontmatter.image_alt}
+                image={getImage(recent_project.frontmatter.image)}
+              />
+            </Rounded>
           </Box>
         </Grid>
       </Container>
@@ -170,7 +176,7 @@ export const pageQuery = graphql`
         id
         slug
         frontmatter {
-          date
+          date(formatString: "MMMM Do YYYY")
           github
           title
           excerpt
@@ -191,7 +197,7 @@ export const pageQuery = graphql`
         id
         slug
         frontmatter {
-          date
+          date(formatString: "MMMM Do YYYY")
           github
           title
           excerpt

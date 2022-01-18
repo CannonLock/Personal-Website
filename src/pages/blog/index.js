@@ -1,26 +1,71 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Grid, Box, Paragraph, Heading, Image, Flex } from "theme-ui"
+import { graphql } from "gatsby"
+import { Link } from "@theme-ui/components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { Rounded, Content } from "../../components/Cards"
 import Container from '../../components/layout/Container'
 import Layout from "../../components/layout/Layout"
 import SEO from "../../components/seo"
 
 const BlogPage = ({ data }) => {
+
+  const vine = getImage(data.vine)
+
   return (
     <Layout>
       <SEO title={"Blog"} />
       <Container>
-        {
-          data.allMdx.nodes.map(node => (
-            <article key={node.id}>
-              <h2>
-                <Link to={`/blog/${node.slug}`}>
-                  {node.frontmatter.title}
-                </Link>
-              </h2>
-              <p>Posted: {node.frontmatter.date}</p>
-            </article>
-          ))
-        }
+        <Flex>
+          <Box
+            sx={{
+              mx: 'auto',
+              width:["100%", "100%", "750px", "750px", "750px", "750px"]
+            }}
+          >
+            <Box sx={{
+                position: "absolute",
+                height: "400px",
+                width: "400px",
+                ml: ["-100px", "-100px", "-200px", "-225px"],
+                zIndex: 1
+            }}>
+              <GatsbyImage alt={"Dangling Vine"} image={vine} />
+            </Box>
+            <Box
+              sx={{mt:4, zIndex: 2, position: 'relative'}}
+            >
+              <Rounded sx={{backgroundColor: "secondary"}}>
+                <Heading sx={{color: "muted"}}>
+                  Blog Posts
+                </Heading>
+              </Rounded>
+              <Box
+                sx={{mt: 4}}
+              >
+                {
+                  data.allMdx.nodes.map(blog => (
+                    <Content
+                      id={blog.id}
+                      title={blog.frontmatter.title}
+                      date={blog.frontmatter.date}
+                      content={blog.frontmatter.excerpt}
+                      href={"/blog/" + blog.slug}
+                      sx={{
+                        mb: 2,
+                        backgroundColor: "highlight",
+                        '&:hover': {
+                          backgroundColor: "muted",
+                          boxShadow: "3px 3px 5px #996F66"
+                        },
+                      }}
+                    />
+                  ))
+                }
+              </Box>
+            </Box>
+          </Box>
+        </Flex>
       </Container>
     </Layout>
   )
@@ -35,10 +80,17 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          date(formatString: "D-M-Y")
+          date(formatString: "MMMM Do, YYYY")
+          excerpt
         }
         id
         slug
+      }
+    }
+    vine: file(relativePath: {glob: "vine.png"}) {
+      relativePath
+      childImageSharp {
+        gatsbyImageData(placeholder: TRACED_SVG)
       }
     }
   }
