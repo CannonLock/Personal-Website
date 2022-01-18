@@ -17,8 +17,9 @@ const Content = ({id, title, date, content, href, sx}) => {
           color:"text",
           boxShadow: 'none',
           transition: "background-color .5s, box-shadow .5s",
-          '&:hover': {
-            backgroundColor: "secondary",
+          backgroundColor: "secondary",
+          "&:hover": {
+            backgroundColor: "primary",
             boxShadow: "5px 5px 10px #996F66"
           },
           ...sx
