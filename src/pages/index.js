@@ -36,7 +36,7 @@ const IndexPage = ({ data }) => {
             }}
           ></Box>
         </Grid>
-        <Grid sx={{ my: 4 }} columns={['1fr', '1fr', '1fr auto']}>
+        <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr auto']}>
           <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
             <Rounded
               sx={{
@@ -93,7 +93,7 @@ const IndexPage = ({ data }) => {
             </Box>
           </Box>
         </Grid>
-        <Grid sx={{ my: 4 }} columns={['1fr', '1fr', '1fr', 'auto 1fr']}>
+        <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr', 'auto 1fr']}>
           <Box>
             <Box sx={{ position: "relative", }} >
               <Box
