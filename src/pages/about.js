@@ -77,7 +77,7 @@ const AboutPage = ( props ) => {
       >
         <Heading as={"h1"}>About Me</Heading>
         <Paragraph>
-          Work in progress, last on was a bit too CV-esque.
+          Work in progress, last one was a bit too CV-esque.
         </Paragraph>
       </Container>
 
