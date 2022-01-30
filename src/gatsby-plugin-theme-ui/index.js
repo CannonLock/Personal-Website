@@ -3,6 +3,10 @@ import { swiss as light, deep as dark } from '@theme-ui/presets'
 
 // Okay
 const theme = {
+  config: {
+    useLocalStorage: false,
+    initialColorModeName: 'light',
+  },
   breakpoints: ['576px', '768px', '992px', '1200px', '1400px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
@@ -10,13 +14,9 @@ const theme = {
     heading: "'Titillium Web', sans-serif;"
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
-  useColorSchemeMediaQuery : true,
   colors : {
     ...light.colors,
     modes : {
-      light : {
-        ...light.colors
-      },
       dark : {
         ...light.colors
       }
@@ -49,5 +49,7 @@ const theme = {
     }
   }
 }
+
+
 
 export default theme;

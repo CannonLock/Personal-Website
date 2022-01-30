@@ -1,6 +1,6 @@
-const React = require("react")
-const { ThemeProvider } = require("theme-ui")
-const CustomCodeBlock = require("../components/CodeBlock").default
+import React from "react"
+import {ThemeProvider} from "theme-ui"
+import CustomCodeBlock from "./CodeBlock"
 
 const MyCode = props => (<CustomCodeBlock {...props} />)
 
@@ -11,6 +11,7 @@ const components = {
 const CustomThemeProvider = (props) => {
   return (
     <ThemeProvider
+      theme={{}}
       components={components}
     >
       {props.children}

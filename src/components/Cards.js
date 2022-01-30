@@ -14,7 +14,7 @@ const Content = ({id, title, date, content, href, sx}) => {
       <Rounded
         sx={{
           display: "block",
-          color:"text",
+          color:"muted",
           boxShadow: 'none',
           transition: "background-color .5s, box-shadow .5s",
           backgroundColor: "secondary",

@@ -6,8 +6,6 @@ import jsx from "theme-ui"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout/Layout"
 import { Rounded, Content } from "../components/Cards"
-import { Link } from "@theme-ui/components"
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import SEO from '../components/seo'
 
 const IndexPage = ({ data }) => {
@@ -49,6 +47,7 @@ const IndexPage = ({ data }) => {
               }}
             >
               <GatsbyImage
+                style={{borderRadius: "10px"}}
                 alt={recent_blog.frontmatter.image_alt}
                 image={getImage(recent_blog.frontmatter.image)}
               />
