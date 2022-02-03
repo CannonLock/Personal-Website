@@ -32,6 +32,9 @@ jobs:
                     # Add in the correct CNAME
                     echo "cannonlock.com" > public/CNAME
 
+                    # Add in the production env
+                    echo "GITHUB_TOKEN=${{ secrets.SuperSecret }}" > .env.production
+
                     # Commit the build then use 'git subtree' to create a branch with just the public contents
                     git add public -f
                     git commit -m "Build Production Website"
