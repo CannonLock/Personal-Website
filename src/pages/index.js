@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Grid, Box, Paragraph, Heading, Image } from "theme-ui"
 import { graphql } from 'gatsby'
 import Container from '../components/layout/Container'
@@ -7,6 +7,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout/Layout"
 import { Rounded, Content } from "../components/Cards"
 import SEO from '../components/seo'
+import GithubEventList from "../components/GithubEventList"
 
 const IndexPage = ({ data }) => {
 
@@ -19,136 +20,143 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title={"Home"} description={""} />
-      <Container>
-        <Grid columns={['1fr', '2fr 1fr', '2fr 1fr', "1fr 1fr"]}>
+      <Container sx={{pt:4}}>
+        <Grid columns={['1fr', '1fr', '1fr', '1fr', "3fr 1fr"]}>
           <Box>
-            <Paragraph variant={"block"} sx={{fontsize:4}}>
-              Web Developer during the day... and also at night. I use this website
-              as a place to look into questions that I have and practice disseminating
-              information. Content is a work in progress currently, but I am currently
-              working on some long term projects and will update the blog with
-              general things that I find interesting and helpful.
-            </Paragraph>
-          </Box>
-          <Box
-            sx={{
-              display: ['none', "none", "none", 'block']
-            }}
-          ></Box>
-        </Grid>
-        <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr auto']}>
-          <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
-            <Rounded
-              sx={{
-                my: 'auto',
-                backgroundColor: "highlight",
-                width: ["260px", "390px"],
-                height: ["260px", "390px"]
-              }}
-            >
-              <GatsbyImage
-                style={{borderRadius: "10px"}}
-                alt={recent_blog.frontmatter.image_alt}
-                image={getImage(recent_blog.frontmatter.image)}
-              />
-            </Rounded>
-          </Box>
-          <Box>
-            <Box sx={{ position: "relative", }} >
+            <Grid columns={['1fr', '2fr 1fr', '2fr 1fr', "1fr 1fr"]}>
+              <Box>
+                <Paragraph variant={"block"} sx={{fontsize:4}}>
+                  Web Developer during the day... and also at night. I use this website
+                  as a place to look into questions that I have and practice disseminating
+                  information. Content is a work in progress currently, but I am currently
+                  working on some long term projects and will update the blog with
+                  general things that I find interesting and helpful.
+                </Paragraph>
+              </Box>
               <Box
                 sx={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  zIndex: 99,
-                  display: "flex",
+                  display: ['none', "none", "none", 'block']
                 }}
-              >
-                <Box
+              ></Box>
+            </Grid>
+            <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr auto']}>
+              <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
+                <Rounded
                   sx={{
-                    ml: [0, 0, 0, -6],
-                    mr: [0, 0, 0, 4],
-                    width: ["100%", "100%", "70%", "auto"],
                     my: 'auto',
-                    p: 3
+                    backgroundColor: "highlight",
+                    width: ["260px", "390px"],
+                    height: ["260px", "390px"]
                   }}
                 >
-                  <Content
-                    title={recent_blog.frontmatter.title}
-                    date={recent_blog.frontmatter.date}
-                    content={recent_blog.frontmatter.excerpt}
-                    href={"/blog/" + recent_blog.slug}
+                  <GatsbyImage
+                    style={{borderRadius: "10px"}}
+                    alt={recent_blog.frontmatter.image_alt}
+                    image={getImage(recent_blog.frontmatter.image)}
                   />
+                </Rounded>
+              </Box>
+              <Box>
+                <Box sx={{ position: "relative", }} >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 99,
+                      display: "flex",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        ml: [0, 0, 0, -6],
+                        mr: [0, 0, 0, 4],
+                        width: ["100%", "100%", "70%", "auto"],
+                        my: 'auto',
+                        p: 3
+                      }}
+                    >
+                      <Content
+                        title={recent_blog.frontmatter.title}
+                        date={recent_blog.frontmatter.date}
+                        content={recent_blog.frontmatter.excerpt}
+                        href={"/blog/" + recent_blog.slug}
+                      />
+                    </Box>
+                  </Box>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: ["350px", "350px", "350px", "450px"],
+                      height: ["350px", "350px", "350px", "450px"],
+                      ml: 'auto'
+                    }}
+                  >
+                    <GatsbyImage alt={"Monstera Leaf"} image={monstera} />
+                  </Box>
                 </Box>
               </Box>
-              <Box
-                sx={{
-                  position: "relative",
-                  width: ["350px", "350px", "350px", "450px"],
-                  height: ["350px", "350px", "350px", "450px"],
-                  ml: 'auto'
-                }}
-              >
-                <GatsbyImage alt={"Monstera Leaf"} image={monstera} />
+            </Grid>
+            <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr', 'auto 1fr']}>
+              <Box>
+                <Box sx={{ position: "relative", }} >
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      height: "100%",
+                      width: "100%",
+                      zIndex: 99,
+                      display: "flex",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        mr: [0, 0, 0, -6],
+                        ml: ['auto', 'auto', 'auto', 4],
+                        width: ["100%", "100%", "70%", "auto"],
+                        my: 'auto',
+                        p: 3
+                      }}
+                    >
+                      <Content
+                        title={recent_project.frontmatter.title}
+                        date={recent_project.frontmatter.date}
+                        content={recent_project.frontmatter.excerpt}
+                        href={"/projects/" + recent_project.slug}
+                      />
+                    </Box>
+                  </Box>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: ["350px", "350px", "350px", "450px"],
+                      height: ["350px", "350px", "350px", "450px"],
+                    }}
+                  >
+                    <GatsbyImage alt={"Fern Leaf"} image={fern} />
+                  </Box>
+                </Box>
               </Box>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr', 'auto 1fr']}>
-          <Box>
-            <Box sx={{ position: "relative", }} >
-              <Box
-                sx={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  zIndex: 99,
-                  display: "flex",
-                }}
-              >
-                <Box
+              <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
+                <Rounded
                   sx={{
-                    mr: [0, 0, 0, -6],
-                    ml: ['auto', 'auto', 'auto', 4],
-                    width: ["100%", "100%", "70%", "auto"],
+                    ml: 'auto',
                     my: 'auto',
-                    p: 3
+                    backgroundColor: "highlight",
+                    width: ["300px", "450px", "450px", "450px"],
+                    height: ["300px", "450px", "450px", "450px"]
                   }}
                 >
-                  <Content
-                    title={recent_project.frontmatter.title}
-                    date={recent_project.frontmatter.date}
-                    content={recent_project.frontmatter.excerpt}
-                    href={"/projects/" + recent_project.slug}
+                  <GatsbyImage
+                    alt={recent_project.frontmatter.image_alt}
+                    image={getImage(recent_project.frontmatter.image)}
                   />
-                </Box>
+                </Rounded>
               </Box>
-              <Box
-                sx={{
-                  position: "relative",
-                  width: ["350px", "350px", "350px", "450px"],
-                  height: ["350px", "350px", "350px", "450px"],
-                }}
-              >
-                <GatsbyImage alt={"Fern Leaf"} image={fern} />
-              </Box>
-            </Box>
+            </Grid>
           </Box>
-          <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
-            <Rounded
-              sx={{
-                ml: 'auto',
-                my: 'auto',
-                backgroundColor: "highlight",
-                width: ["300px", "450px", "450px", "450px"],
-                height: ["300px", "450px", "450px", "450px"]
-              }}
-            >
-              <GatsbyImage
-                alt={recent_project.frontmatter.image_alt}
-                image={getImage(recent_project.frontmatter.image)}
-              />
-            </Rounded>
+          <Box sx={{display:['none', 'none', 'none', 'none', 'block']}}>
+            <GithubEventList />
           </Box>
         </Grid>
       </Container>

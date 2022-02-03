@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.cannonlock.com",
@@ -11,7 +15,24 @@ module.exports = {
     `gatsby-remark-images`,
     "gatsby-plugin-theme-ui",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-image",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        // This type will contain remote schema Query type
+        typeName: "GitHub",
+        // This is the field under which it's accessible
+        fieldName: "github",
+        // URL to query from
+        url: "https://api.github.com/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.dev/env-vars
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
