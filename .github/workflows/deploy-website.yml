@@ -25,7 +25,9 @@ jobs:
                 run: npm install
 
             -   name: Add ENV Variables
-                run: echo "GITHUB_TOKEN=${{secrets.TOKEN}}" > .env.production
+                run: |
+                    echo "GITHUB_TOKEN=${{secrets.TOKEN}}" > .env.production
+                    cat .env.production
 
             -   name: Build
                 run: npm run build
