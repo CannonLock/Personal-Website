@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, navigate } from "gatsby"
 import {Treemap, ResponsiveContainer, Tooltip, Rectangle } from "recharts"
-import { Box, Flex } from "theme-ui"
+import { Box, Flex, Heading, Grid} from "theme-ui"
 import theme from "../gatsby-plugin-theme-ui"
 import { mix } from '@theme-ui/color'
 import { Rounded} from "./Cards"
@@ -18,7 +18,12 @@ const data_to_heirarchy = async (data) => {
         tree[node.owner.login] = []
       }
 
-      tree[node.owner.login].push({name: node.name, size: node.defaultBranchRef.target.history.totalCount})
+      tree[node.owner.login].push({
+        name: node.name,
+        size: node.defaultBranchRef.target.history.totalCount,
+        image: node.owner.avatarUrl,
+        url: node.url
+      })
     }
   })
 
@@ -34,12 +39,22 @@ const data_to_heirarchy = async (data) => {
 }
 
 const CustomTooltip = (props) => {
-  console.log(props)
   if (props.active && props.payload && props.payload.length) {
+
     return (
-      <Rounded sx={{ backgroundColor: "muted", zIndex: "100000"}} className="custom-tooltip">
-        <p className="intro">IK This is Broken</p>
-        <p className="desc">I wanted to push becuase I am happy it is this far.</p>
+      <Rounded sx={{ backgroundColor: "muted", position: "relative", zIndex: "100000", mr: -3}} className="custom-tooltip">
+        <Grid columns={'auto 1fr'}>
+          <Box sx={{borderRadius: "50%", overflow: "hidden", width: "60px", height: "60px"}}>
+            <img height={60} src={props.payload[0].payload.image} alt={props.payload[0].payload.name} />
+          </Box>
+          <Box>
+            <Heading
+              sx={{
+                wordWrap: "break-word"
+              }}
+            >{props.payload[0].payload.name}</Heading>
+          </Box>
+        </Grid>
       </Rounded>
     );
   }
@@ -55,7 +70,7 @@ const CustomizedContent = (props) => {
     <g>
       <Rectangle
         radius={"5px"}
-        onMouseEnter={() => console.log("fart")}
+        onClick={() => navigate(props.url)}
         x={x}
         y={y}
         type={"flat"}
