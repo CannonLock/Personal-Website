@@ -42,13 +42,13 @@ const Header = () => {
         </Heading>
       </NavLink>
       <NavLink to={"/about"} p={2} as={GatsbyLink} variant="sub_nav">
-        <Heading as={"h3"}>About</Heading>
+        <Heading as={"h2"}>About</Heading>
       </NavLink>
       <NavLink to={"/blog"} p={2} as={GatsbyLink} variant="sub_nav">
-        <Heading as={"h3"}>Blog</Heading>
+        <Heading as={"h2"}>Blog</Heading>
       </NavLink>
       <NavLink to={"/projects"} p={2} as={GatsbyLink} variant="sub_nav">
-        <Heading as={"h3"}>Projects</Heading>
+        <Heading as={"h2"}>Projects</Heading>
       </NavLink>
     </Flex>
   )

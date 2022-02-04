@@ -16,6 +16,7 @@ const ContactLink = ( props ) => {
             px: 2,
             height: "20px"
           }}
+          alt={props.alt}
         />
       </Link>
       <Text
@@ -70,18 +71,21 @@ const Footer = ( props ) => {
           contactText="lockannon@gmail.com"
           contactLink="mailto:lockannon@gmail.com"
           src={Email}
+          alt={"Email Logo"}
         />
         <ContactLink
           contact="Github"
           contactText="CannonLock"
           contactLink="https://github.com/CannonLock?tab=repositories"
           src={Github}
+          alt={"Github Logo"}
         />
         <ContactLink
           contact="LinkedIn"
           contactText="cannonlock"
           contactLink="https://linkedin.com/in/cannonlock"
           src={LinkedIn}
+          alt={"LinkedIn Logo"}
         />
       </Flex>
 

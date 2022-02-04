@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { Grid, Box, Paragraph, Heading, Divider } from "theme-ui"
 import jsx from "theme-ui"
 import { Link } from "@theme-ui/components"
+import { mix, darken } from "@theme-ui/color"
+import theme from "../gatsby-plugin-theme-ui"
 
 const Content = ({id, title, date, content, href, sx}) => {
   return(
@@ -14,10 +16,10 @@ const Content = ({id, title, date, content, href, sx}) => {
       <Rounded
         sx={{
           display: "block",
-          color:"muted",
+          color:"background",
           boxShadow: 'none',
           transition: "background-color .5s, box-shadow .5s",
-          backgroundColor: "secondary",
+          backgroundColor: darken('secondary',  .02)(theme),
           "&:hover": {
             backgroundColor: "primary",
             boxShadow: "5px 5px 10px #996F66"
