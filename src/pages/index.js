@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
       <Container sx={{pt:4}}>
         <Grid columns={['1fr', '1fr', '1fr', '1fr', "3fr 1fr"]}>
           <Box>
-            <Grid columns={['1fr', '2fr 1fr', '2fr 1fr', "1fr 1fr"]}>
+            <Grid columns={['1fr', '1fr', '3fr 1fr', '3fr 1fr', "2fr 1fr"]}>
               <Box>
                 <Paragraph variant={"block"} sx={{fontsize:4}}>
                   Web Developer during the day... and also at night. I use this website

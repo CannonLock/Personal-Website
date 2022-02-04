@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery, navigate } from "gatsby"
 import {Treemap, ResponsiveContainer, Tooltip, Rectangle } from "recharts"
-import { Box, Flex, Heading, Grid} from "theme-ui"
+import { Box, Flex, Heading, Grid, Image } from "theme-ui"
 import theme from "../gatsby-plugin-theme-ui"
 import { mix } from '@theme-ui/color'
 import { Rounded} from "./Cards"
+import Github from "../static/icons/github.svg"
 
 const data_to_heirarchy = async (data) => {
 
@@ -153,6 +154,7 @@ const GithubEventList = (props) => {
 
   return(
     <Box sx={{position:'relative', height:"100%", width:"100%", pl:4, borderRadius: "20px"}}>
+      <Image height={"30px"} sx={{filter: "invert(9%) sepia(13%) saturate(1847%) hue-rotate(321deg) brightness(109%) contrast(79%);", height: "30px", position: "absolute", top: "0px", right: "0px", mt:2, mr: 2, zIndex:9999}} src={Github} alt={"Github Logo"} />
       <ResponsiveContainer>
         <Treemap
           data={heirarchy}
