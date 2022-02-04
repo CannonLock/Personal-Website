@@ -42,18 +42,19 @@ const CustomTooltip = (props) => {
   if (props.active && props.payload && props.payload.length) {
 
     return (
-      <Rounded sx={{ backgroundColor: "muted", position: "relative", zIndex: "100000", mr: -3}} className="custom-tooltip">
+      <Rounded sx={{ backgroundColor: "muted"}} className="custom-tooltip">
         <Grid columns={'auto 1fr'}>
           <Box sx={{borderRadius: "50%", overflow: "hidden", width: "60px", height: "60px"}}>
             <img height={60} src={props.payload[0].payload.image} alt={props.payload[0].payload.name} />
           </Box>
-          <Box>
+          <Flex>
             <Heading
               sx={{
-                wordWrap: "break-word"
+                wordWrap: "break-word",
+                my: "auto"
               }}
             >{props.payload[0].payload.name}</Heading>
-          </Box>
+          </Flex>
         </Grid>
       </Rounded>
     );
@@ -162,7 +163,12 @@ const GithubEventList = (props) => {
           stroke="#fff"
           content={<CustomizedContent />}
         >
-          <Tooltip content={<CustomTooltip />} allowEscapeViewBox={{ x: true, y: true }} offset={-200}/>
+          <Tooltip
+            wrapperStyle={{zIndex: 999, "margin-left":"-260px"}}
+            content={<CustomTooltip />}
+            allowEscapeViewBox={{ x: true, y: true }}
+            coordinate={{ x: -999100, y: 140 }}
+          />
         </Treemap>
       </ResponsiveContainer>
     </Box>
