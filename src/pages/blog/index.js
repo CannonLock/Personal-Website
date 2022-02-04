@@ -7,6 +7,8 @@ import { Rounded, Content } from "../../components/Cards"
 import Container from '../../components/layout/Container'
 import Layout from "../../components/layout/Layout"
 import SEO from "../../components/seo"
+import { mix } from "@theme-ui/color"
+import theme from "../../gatsby-plugin-theme-ui"
 
 const BlogPage = ({ data }) => {
 
@@ -53,9 +55,9 @@ const BlogPage = ({ data }) => {
                       href={"/blog/" + blog.slug}
                       sx={{
                         mb: 2,
-                        backgroundColor: "highlight",
+                        backgroundColor: "gray",
                         '&:hover': {
-                          backgroundColor: "muted",
+                          backgroundColor: mix('muted',"gray",  .05)(theme),
                           boxShadow: "3px 3px 5px #996F66"
                         },
                       }}

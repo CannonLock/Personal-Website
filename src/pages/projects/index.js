@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Box, Flex, Heading, Text, Button } from "theme-ui"
+import { Box, Flex, Heading, Text, Button, jsx } from "theme-ui"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img, { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Container from '../../components/layout/Container'
@@ -7,10 +7,11 @@ import {
   Label,
   Input,
 } from 'theme-ui'
-
 import SEO from "../../components/seo"
 import Layout from "../../components/layout/Layout"
 import { Content, Rounded } from "../../components/Cards"
+import { mix } from "@theme-ui/color"
+import theme from "../../gatsby-plugin-theme-ui"
 
 const ProjectPage = ({ data }) => {
 
@@ -57,9 +58,9 @@ const ProjectPage = ({ data }) => {
                       href={"/projects/" + blog.slug}
                       sx={{
                         mb: 2,
-                        backgroundColor: "highlight",
+                        backgroundColor: "gray",
                         '&:hover': {
-                          backgroundColor: "muted",
+                          backgroundColor: mix('muted',"gray",  .05)(theme),
                           boxShadow: "3px 3px 5px #996F66"
                         },
                       }}
