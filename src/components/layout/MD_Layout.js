@@ -5,8 +5,15 @@ import Container from './Container'
 import CustomThemeProvider from "../CustomThemeProvider"
 
 const MD_Layout = ( props ) => {
+  console.log(props)
+  let { pageContext } = props
   return (
-    <Layout>
+    <Layout
+      title={pageContext.frontmatter.title}
+      description={pageContext.frontmatter.excerpt}
+      image={props.path + pageContext.frontmatter.image}
+      {...props}
+    >
       <Container>
         <Flex>
           <Box

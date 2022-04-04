@@ -9,7 +9,6 @@ import Header from "./Header"
 import Footer from "./Footer"
 
 const Layout = ( props ) => {
-  
   return (
     <Flex
       sx={{
@@ -18,7 +17,7 @@ const Layout = ( props ) => {
         backgroundColor: "background"
       }}
     >
-      <SEO title={props.title} description={props.description} />
+      <SEO {...props} />
       <Header/>
         <main>{props.children}</main>
       <Footer/>

@@ -7,7 +7,8 @@ module.exports = {
     siteUrl: "https://www.cannonlock.com",
     title: "LockDotCom",
     description: `The website you didn't know you needed.`,
-    author: "Cannon Lock"
+    author: "Cannon Lock",
+    image: "/static/images/WebsiteFavicon.png"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
