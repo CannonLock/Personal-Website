@@ -23,22 +23,6 @@ const IndexPage = ({ data }) => {
       <Container sx={{pt:4}}>
         <Grid columns={['1fr', '1fr', '1fr', '1fr', "3fr 1fr"]}>
           <Box>
-            <Grid columns={['1fr', '1fr', '3fr 1fr', '3fr 1fr', "2fr 1fr"]}>
-              <Box>
-                <Paragraph variant={"block"} sx={{fontsize:4}}>
-                  Web Developer during the day... and also at night. I use this website
-                  as a place to look into questions that I have and practice disseminating
-                  information. Content is a work in progress currently, but I am
-                  working on some long term projects and will update the blog with
-                  general things that I find interesting and helpful.
-                </Paragraph>
-              </Box>
-              <Box
-                sx={{
-                  display: ['none', "none", "none", 'block']
-                }}
-              ></Box>
-            </Grid>
             <Grid sx={{ my: [0,0,2,4] }} columns={['1fr', '1fr', '1fr auto']}>
               <Box sx={{ display: ['none', "none", "none", 'flex'] }} >
                 <Rounded

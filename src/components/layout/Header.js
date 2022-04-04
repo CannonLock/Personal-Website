@@ -41,9 +41,6 @@ const Header = () => {
           Cannon Lock
         </Heading>
       </NavLink>
-      <NavLink to={"/about"} p={2} as={GatsbyLink} variant="sub_nav">
-        <Heading as={"h2"}>About</Heading>
-      </NavLink>
       <NavLink to={"/blog"} p={2} as={GatsbyLink} variant="sub_nav">
         <Heading as={"h2"}>Blog</Heading>
       </NavLink>

@@ -15,7 +15,7 @@ const ProjectPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={"Blog"} />
+      <SEO title={"Projects"} />
       <Container>
         <Flex>
           <Box

@@ -5,7 +5,6 @@ import Container from './Container'
 import CustomThemeProvider from "../CustomThemeProvider"
 
 const MD_Layout = ( props ) => {
-  console.log(props)
   let { pageContext } = props
   return (
     <Layout
