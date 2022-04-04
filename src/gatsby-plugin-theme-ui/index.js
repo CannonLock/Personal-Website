@@ -33,6 +33,7 @@ const theme = {
     pr: 2,
   },
   text: {
+    ...dark.text,
     block: {
       variant: 'paragraph',
       my: 3,
@@ -49,7 +50,5 @@ const theme = {
     }
   }
 }
-
-
 
 export default theme;

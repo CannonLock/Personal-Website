@@ -1,8 +1,11 @@
 import React from "react"
 import {ThemeProvider} from "theme-ui"
+import theme from "../gatsby-plugin-theme-ui/index"
 import CustomCodeBlock from "./CodeBlock"
 
-const MyCode = props => (<CustomCodeBlock {...props} />)
+const MyCode = props => (
+  <CustomCodeBlock {...props} />
+)
 
 const components = {
   code: MyCode,
@@ -11,7 +14,7 @@ const components = {
 const CustomThemeProvider = (props) => {
   return (
     <ThemeProvider
-      theme={{}}
+      theme={theme}
       components={components}
     >
       {props.children}

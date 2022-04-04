@@ -1,7 +1,17 @@
 import React from "react";
-import { CodeBlock, CopyBlock, solarizedLight } from "react-code-blocks";
+import {Box} from "theme-ui"
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { solarizedLight } from "react-code-blocks";
 
 // Courtesy: https://github.com/rajinwonderland/react-code-blocks/blob/master/MDX.md
+
+const PreTag = (props) => {
+  return (
+    <Box sx={{}}>
+      {props.children}
+    </Box>
+  )
+}
 
 const CustomCodeBlock = (props) => {
 
@@ -13,15 +23,15 @@ const CustomCodeBlock = (props) => {
     : "python";
 
   return copy ? (
-    <CopyBlock
-      text={children}
+    <SyntaxHighlighter
+      PreTag={PreTag}
       language={language}
       theme={solarizedLight}
       wrapLines
       codeBlock
-    />
+    >{children}</SyntaxHighlighter>
   ) : (
-    <CodeBlock text={children} language={language} theme={solarizedLight} wrapLines />
+    <SyntaxHighlighter PreTag={PreTag} language={language} theme={solarizedLight} wrapLines >{children}</SyntaxHighlighter>
   );
 };
 

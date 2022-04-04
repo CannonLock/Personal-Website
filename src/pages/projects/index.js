@@ -3,10 +3,6 @@ import { Box, Flex, Heading, Text, Button, jsx } from "theme-ui"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img, { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Container from '../../components/layout/Container'
-import {
-  Label,
-  Input,
-} from 'theme-ui'
 import SEO from "../../components/seo"
 import Layout from "../../components/layout/Layout"
 import { Content, Rounded } from "../../components/Cards"
