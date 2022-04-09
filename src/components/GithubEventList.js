@@ -166,7 +166,7 @@ const GithubEventList = (props) => {
           content={<CustomizedContent />}
         >
           <Tooltip
-            wrapperStyle={{zIndex: 999, "margin-left":"-260px"}}
+            wrapperStyle={{zIndex: 999, "marginLeft":"-260px"}}
             content={<CustomTooltip />}
             allowEscapeViewBox={{ x: true, y: true }}
             coordinate={{ x: -999100, y: 140 }}

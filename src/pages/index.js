@@ -128,7 +128,7 @@ const IndexPage = ({ data }) => {
                     my: 'auto',
                     backgroundColor: "highlight",
                     width: ["300px", "450px", "450px", "450px"],
-                    height: ["300px", "450px", "450px", "450px"]
+                    height: ["auto"]
                   }}
                 >
                   <GatsbyImage
