@@ -1,11 +1,11 @@
-/** @jsx jsx */
 import { swiss as light, deep as dark } from '@theme-ui/presets'
 
 // Okay
 const theme = {
   config: {
-    useLocalStorage: false,
-    initialColorModeName: 'light',
+    useLocalStorage: "dark",
+    initialColorModeName: "light",
+    useColorSchemeMediaQuery: 'system'
   },
   breakpoints: ['576px', '768px', '992px', '1200px', '1400px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -17,9 +17,12 @@ const theme = {
   colors : {
     ...light.colors,
     modes : {
-      dark : {
+      light : {
         ...light.colors
-      }
+      },
+      dark : {
+        ...dark.colors
+      },
     }
   },
   fontSize : dark.fontSizes,

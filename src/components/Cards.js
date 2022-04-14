@@ -1,9 +1,6 @@
 import React, { useState } from "react"
 import { Grid, Box, Paragraph, Heading, Divider } from "theme-ui"
-import jsx from "theme-ui"
 import { Link } from "@theme-ui/components"
-import { mix, darken } from "@theme-ui/color"
-import theme from "../gatsby-plugin-theme-ui"
 
 const Content = ({id, title, date, content, href, sx}) => {
   return(
@@ -19,10 +16,10 @@ const Content = ({id, title, date, content, href, sx}) => {
           color:"background",
           boxShadow: 'none',
           transition: "background-color .5s, box-shadow .5s",
-          backgroundColor: darken('secondary',  .02)(theme),
+          bg: "secondary",
           "&:hover": {
-            backgroundColor: "primary",
-            boxShadow: "5px 5px 10px #996F66"
+            bg: "primary",
+            boxShadow: (theme) => `2px 5px 7px ${theme.colors.gray}`
           },
           ...sx
         }}
@@ -51,7 +48,7 @@ const Rounded = (props) => {
       sx={{
         borderRadius: '20px',
         p:3,
-        backgroundColor: 'primary',
+        bg: 'primary',
         ...props.sx,
       }}
     >

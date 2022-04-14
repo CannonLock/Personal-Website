@@ -1,12 +1,13 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
 import { graphql, Link as GatsbyLink, StaticQuery } from "gatsby"
 import { StaticImage, getImage } from "gatsby-plugin-image"
 import React, { useState } from "react"
-import { Heading, jsx } from 'theme-ui'
+import { Heading, jsx, useColorMode } from "theme-ui"
 import { Box, Button, Flex, NavLink } from 'theme-ui'
 
 const Header = () => {
-
+  const [colorMode, setColorMode] = useColorMode()
   return(
     <Flex
       as="nav"

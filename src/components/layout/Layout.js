@@ -1,4 +1,5 @@
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
 import React from "react"
 import PropTypes from "prop-types"
 import { Flex } from 'theme-ui'

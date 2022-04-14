@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
                 <Rounded
                   sx={{
                     my: 'auto',
-                    backgroundColor: "highlight",
+                    bg: "highlight",
                     width: ["260px", "390px"],
                     height: ["260px", "390px"]
                   }}

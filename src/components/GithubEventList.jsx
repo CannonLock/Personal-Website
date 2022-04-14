@@ -1,8 +1,8 @@
+/** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery, navigate } from "gatsby"
 import {Treemap, ResponsiveContainer, Tooltip, Rectangle } from "recharts"
-import { Box, Flex, Heading, Grid, Image } from "theme-ui"
-import theme from "../gatsby-plugin-theme-ui"
+import { Box, Flex, Heading, Grid, Image, useThemeUI, useColorMode, jsx } from "theme-ui"
 import { mix } from '@theme-ui/color'
 import { Rounded} from "./Cards"
 import Github from "../static/icons/github.svg"
@@ -43,7 +43,10 @@ const CustomTooltip = (props) => {
   if (props.active && props.payload && props.payload.length) {
 
     return (
-      <Rounded sx={{ backgroundColor: "muted"}} className="custom-tooltip">
+      <Rounded
+        sx={{ backgroundColor : "muted" }}
+        className="custom-tooltip"
+      >
         <Grid columns={'auto 1fr'}>
           <Box sx={{borderRadius: "50%", overflow: "hidden", width: "60px", height: "60px"}}>
             <img height={60} src={props.payload[0].payload.image} alt={props.payload[0].payload.name} />
@@ -65,12 +68,12 @@ const CustomTooltip = (props) => {
 };
 
 const CustomizedContent = (props) => {
-  const { root, depth, x, y, width, height, index, colors, name, value } = props;
-  let color = mix('muted',"gray",  (index / root.children.length))(theme)
+  const { root, depth, x, y, width, height, index, name, value } = props;
 
   return (
     <g>
       <Rectangle
+        {...props}
         radius={"5px"}
         onClick={() => navigate(props.url)}
         x={x}
@@ -78,10 +81,10 @@ const CustomizedContent = (props) => {
         type={"flat"}
         width={width}
         height={height}
-        style={{
+        sx={{
           fill:
             depth < 2
-              ? color
+              ? mix("muted", "gray",  (index / root.children.length))
               : "#ffffff00",
           stroke: "#fff",
           strokeWidth: 2 / (depth + 1e-10),

@@ -3,6 +3,7 @@ require("dotenv").config({
 })
 
 module.exports = {
+  jsxRuntime: "automatic",
   siteMetadata: {
     siteUrl: "https://www.cannonlock.com",
     title: "LockDotCom",

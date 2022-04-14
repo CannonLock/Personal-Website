@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Flex, Box } from 'theme-ui'

@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import React, { useState, useEffect } from "react"
 import { VictoryChart, VictoryLine } from "victory"
 import { get_json } from "../../static/js/util"

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Box, Flex, Heading, Text, Button, jsx } from "theme-ui"
+import { Box, Flex, Heading, Text, Button, jsx, useThemeUI } from "theme-ui"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img, { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Container from '../../components/layout/Container'
@@ -10,6 +10,8 @@ import { darken, mix } from "@theme-ui/color"
 import theme from "../../gatsby-plugin-theme-ui"
 
 const ProjectPage = ({ data }) => {
+
+  const {theme} = useThemeUI()
 
   const ivy = getImage(data.ivy)
 
@@ -36,7 +38,7 @@ const ProjectPage = ({ data }) => {
             <Box
               sx={{mt:4, zIndex: 2, position: 'relative'}}
             >
-              <Rounded sx={{backgroundColor: darken('secondary',  .02)(theme)}}>
+              <Rounded sx={{backgroundColor: darken('secondary',  .02)}}>
                 <Heading sx={{color: "background"}}>
                   Project Posts
                 </Heading>
@@ -54,10 +56,10 @@ const ProjectPage = ({ data }) => {
                       href={"/projects/" + blog.slug}
                       sx={{
                         mb: 2,
-                        backgroundColor: darken("gray",  .04)(theme),
+                        backgroundColor: darken("gray",  .04),
                         '&:hover': {
-                          backgroundColor: darken("gray",  .03)(theme),
-                          boxShadow: "3px 3px 5px #996F66"
+                          backgroundColor: darken("gray",  .03),
+                          boxShadow: (theme) => `3px 3px 5px ${darken("gray",  .2)(theme)}`
                         },
                       }}
                     />

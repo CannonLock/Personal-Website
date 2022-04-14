@@ -8,7 +8,6 @@ import Container from '../../components/layout/Container'
 import Layout from "../../components/layout/Layout"
 import SEO from "../../components/seo"
 import { darken, mix } from "@theme-ui/color"
-import theme from "../../gatsby-plugin-theme-ui"
 
 const BlogPage = ({ data }) => {
 
@@ -37,7 +36,7 @@ const BlogPage = ({ data }) => {
             <Box
               sx={{mt:4, zIndex: 2, position: 'relative'}}
             >
-              <Rounded sx={{backgroundColor: darken('secondary',  .02)(theme)}}>
+              <Rounded sx={{backgroundColor: darken('secondary',  .02)}}>
                 <Heading sx={{color: "background"}}>
                   Blog Posts
                 </Heading>
@@ -55,10 +54,10 @@ const BlogPage = ({ data }) => {
                       href={"/blog/" + blog.slug}
                       sx={{
                         mb: 2,
-                        backgroundColor: darken("gray",  .04)(theme),
+                        backgroundColor: darken("gray",  .04),
                         '&:hover': {
-                          backgroundColor: darken("gray",  .03)(theme),
-                          boxShadow: "3px 3px 5px #996F66"
+                          backgroundColor: darken("gray",  .03),
+                          boxShadow: (theme) => `3px 3px 5px ${darken("gray",  .2)(theme)}`
                         },
                       }}
                     />

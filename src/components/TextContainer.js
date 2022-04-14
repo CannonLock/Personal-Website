@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import { Flex, Box } from 'theme-ui'
 import { jsx } from "theme-ui"
 
