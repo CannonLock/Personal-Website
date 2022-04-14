@@ -22,13 +22,13 @@ jobs:
                     node-version: '16'
 
             -   name: Install dependencies
-                run: npm install
+                run: yarn install
 
             -   name: Add production Config
                 run: echo "GITHUB_TOKEN=${{ secrets.DEPLOY_KEY }}" > .env.production
 
             -   name: Build
-                run: npm run build
+                run: yarn run build
 
             -   name: Deploy
                 run: |
