@@ -7,11 +7,11 @@ import Beats from "../../static/sounds/Website_Beats_0.mp3"
 import DancerFile from "../../static/models/TakingdrakeDancing.gltf"
 import { useThemeUI, Box } from "theme-ui"
 
-const Dancer = (props) => {
+const Dancer = () => {
   const dancer = useRef()
   const gltf = useGLTF(DancerFile)
-  const {nodes, materials, animations} = gltf
-  const { ref, mixer, names, actions, clips } = useAnimations(animations, dancer)
+  const {nodes,  animations} = gltf
+  const { ref, actions } = useAnimations(animations, dancer)
 
   useEffect(() => {
     actions["Armature|mixamo.com|Layer0"].play()
@@ -21,8 +21,6 @@ const Dancer = (props) => {
     <group ref={ref} dispose={null} position={[0,.5,5]} rotation={[Math.PI / 2, 0, 0]} scale={4}>
       <primitive object={nodes?.mixamorigHips} />
       <skinnedMesh
-        castShadow
-        receiveShadow
         scale={1000}
         geometry={nodes?.Man__Cube004.geometry}
         skeleton={nodes?.Man__Cube004.skeleton}
