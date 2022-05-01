@@ -1,0 +1,51 @@
+---
+title: Three JS Dance Floor
+date: 2022-04-30
+image: ../../static/images/Takingdrake_Dancing.png
+image_alt: Image of dance floor with character dancing
+excerpt: >
+  First project using Three JS, a Javascript library for putting 3D content on the web. Well poking around the
+  examples I saw one with a mesh dancing and got the idea to incorporate the first 3D mesh I made in Blender.
+
+  The few hours I worked on this makes me far from a pro, so this is just a some links I found helpful.
+---
+
+import { Display } from "../../components/models/DanceFloor"
+
+<Display sx={{width: "100%"}}/>
+
+## Creating the Dance Animation
+
+After spending three hours trying to mesh to wave in a believable way I was not about to try and get it bust a move.
+[Adobe Mixamo](https://www.mixamo.com/#/) has free to use models and animations, with the animations usable by uploading
+your own model. So with little to no effort I had a break dancing model.
+
+I did nothing special well including this model, you can find all the code in the **Dancer** Component in the [DancerFloor.jsx File](https://github.com/CannonLock/Personal-Website/blob/master/src/components/models/DanceFloor.jsx).
+
+The least obvious aspect of the code is the inclusion of the primitive element as seen below.
+At this point I don't understand why without this the mesh does not render.
+
+```
+<group ref={ref} dispose={null} position={[0,.5,5]} rotation={[Math.PI / 2, 0, 0]} scale={4}>
+  <primitive object={nodes?.mixamorigHips} />
+  <skinnedMesh
+    castShadow
+    receiveShadow
+    scale={1000}
+    geometry={nodes?.Man__Cube004.geometry}
+    skeleton={nodes?.Man__Cube004.skeleton}
+  >
+    <meshStandardMaterial attach={"material"} color={"black"} />
+  </skinnedMesh>
+</group>
+```
+
+## Links
+
+Below is a list of the various docs, and code pens that I looked at well building this. There is a lot
+of cool things to think about for the future here.
+
+- [Initial Three JS Inspiration Examples](https://threejs.org/examples/#webgl_animation_keyframes)
+- [Dance Animations from Mixamo](https://www.mixamo.com/#/?genres=Dance&page=1&type=Motion%2CMotionPack)
+- [React Three Fiber Helper Storybook](https://drei.pmnd.rs/?path=/story/performance-adaptive--adaptive-scene-st)
+

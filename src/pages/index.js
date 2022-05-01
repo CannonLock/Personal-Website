@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Grid, Box, Paragraph, Heading, Image } from "theme-ui"
+import { Grid, Box, Paragraph, Heading, Image, useThemeUI } from "theme-ui"
 import { graphql } from 'gatsby'
 import Container from '../components/layout/Container'
 import jsx from "theme-ui"
@@ -8,8 +8,12 @@ import Layout from "../components/layout/Layout"
 import { Rounded, Content } from "../components/Cards"
 import SEO from '../components/seo'
 import GithubEventList from "../components/GithubEventList"
+import { Canvas } from "@react-three/fiber"
+import { DanceFloor } from "../components/models/tree"
 
 const IndexPage = ({ data }) => {
+
+  const { theme } = useThemeUI()
 
   const monstera = getImage(data.monstera)
   const fern = getImage(data.fern)
