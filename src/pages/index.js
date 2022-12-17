@@ -7,9 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout/Layout"
 import { Rounded, Content } from "../components/Cards"
 import SEO from '../components/seo'
-import GithubEventList from "../components/GithubEventList"
-import { Canvas } from "@react-three/fiber"
-import { DanceFloor } from "../components/models/tree"
 
 const IndexPage = ({ data }) => {
 
@@ -144,7 +141,6 @@ const IndexPage = ({ data }) => {
             </Grid>
           </Box>
           <Box sx={{display:['none', 'none', 'none', 'none', 'block']}}>
-            <GithubEventList />
           </Box>
         </Grid>
       </Container>
