@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-transit-visualization-mdx",
+    "path": "/blog/Transit_Visualization/",
+    "result": {"pageContext":{"frontmatter":{"title":"Visualizing Transit Effectiveness","date":"2022-04-08T00:00:00.000Z","image":"../../static/images/Transit_Visualization.png","image_alt":"Image from the Urban Data Challenge website that has a map of San\nFrancisco's transit\n","excerpt":"Madison, Wisconsin is planning an update to their bus lines and as a\ncommunity member that loves the bus I have invested interest. After\nspending a couple of hours looking through the plans and getting excited their\nis still one visualization that is missing.\n"}}},
+    "staticQueryHashes": ["2744905544","3537562275"]}

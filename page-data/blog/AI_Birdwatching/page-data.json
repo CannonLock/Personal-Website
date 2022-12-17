@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-ai-birdwatching-mdx",
+    "path": "/blog/AI_Birdwatching/",
+    "result": {"pageContext":{"frontmatter":{"title":"AI Bird Watching","date":"2022-01-23T00:00:00.000Z","image":"../../static/images/bird_watching_output.jpg","image_alt":"Birds with recognition overlay","github":"https://github.com/CannonLock/BirdTracker","excerpt":"The birds have to be watched, but sometimes I just can't watch them. Using\nImageAI I identify the birds in the pictures taken at my bird feeder\nso that the images without my winged friends can be filtered out.\n"}}},
+    "staticQueryHashes": ["2744905544","3537562275"]}

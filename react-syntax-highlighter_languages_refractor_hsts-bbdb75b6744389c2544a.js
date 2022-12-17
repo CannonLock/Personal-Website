@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklock_dot_com=self.webpackChunklock_dot_com||[]).push([[3140],{41748:function(a){function e(a){a.languages.hsts={directive:{pattern:/\b(?:max-age=|includeSubDomains|preload)/,alias:"keyword"},safe:{pattern:/\d{8,}/,alias:"selector"},unsafe:{pattern:/\d{1,7}/,alias:"function"}}}a.exports=e,e.displayName="hsts",e.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_hsts-bbdb75b6744389c2544a.js.map

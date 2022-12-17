@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-benchmarking-network-with-python-mdx",
+    "path": "/blog/Benchmarking_Network_With_Python/",
+    "result": {"pageContext":{"frontmatter":{"title":"Benchmarking Your Network With Python","date":"2022-01-02T00:00:00.000Z","image":"../../static/images/download_plot.png","image_alt":"Plot of download speed over span of script running","github":"https://github.com/CannonLock/network_benchmark","excerpt":"Tutorial of the speedtest Python package. Includes\na script to collect your network statistics and export them to\na CSV file.\n"}}},
+    "staticQueryHashes": ["2744905544","3537562275"]}

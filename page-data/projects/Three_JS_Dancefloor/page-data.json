@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-three-js-dancefloor-mdx",
+    "path": "/projects/Three_JS_Dancefloor/",
+    "result": {"pageContext":{"frontmatter":{"title":"Three JS Dance Floor","date":"2022-04-30T00:00:00.000Z","image":"../../static/images/Takingdrake_Dancing.png","image_alt":"Image of dance floor with character dancing","excerpt":"First project using Three JS, a Javascript library for putting 3D content on the web. Well poking around the examples I saw one with a mesh dancing and got the idea to incorporate the first 3D mesh I made in Blender.\nThe few hours I worked on this makes me far from a pro, so this is just a some links I found helpful.\n"}}},
+    "staticQueryHashes": ["2744905544","3537562275"]}

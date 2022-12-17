@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-gatsby-deploy-gh-action-mdx",
+    "path": "/blog/Gatsby_Deploy_GH_Action/",
+    "result": {"pageContext":{"frontmatter":{"title":"Deploying Your Gatsby Website with Github Actions","date":"2021-09-28T00:00:00.000Z","excerpt":"A guide into deploying your Gatsby Website automatically using Github actions.\n"}}},
+    "staticQueryHashes": ["2744905544","3537562275"]}
